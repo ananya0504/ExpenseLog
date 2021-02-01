@@ -1,9 +1,9 @@
 # ExpenseLog
-My first mini project in Flutter!
+My mini project in Flutter!
 
 
 ## Getting Started
-This is a preview of the app here, check it out!
+This is a preview of the app here-
 ![Preview](https://github.com/ananya0504/ExpenseLog/blob/master/assets/images/preview.png)
 
 
