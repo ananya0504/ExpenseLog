@@ -28,9 +28,9 @@ This is my first flutter app!
 Here are some screenshots of my work -
 
 <p>
-  <img src='screenshots/main.png' width = '33%'>
-  <img src= 'screenshots/add.png' width = '33%' >
-  <img src ='screenshots/home.png' width = '33%'>
+  <img src='screenshots/main.jpeg' width = '33%'>
+  <img src= 'screenshots/add.jpeg' width = '33%' >
+  <img src ='screenshots/home.jpeg' width = '33%'>
 </p>
 
 
