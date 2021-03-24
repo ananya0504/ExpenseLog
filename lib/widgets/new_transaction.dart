@@ -8,10 +8,10 @@ class NewTransaction extends StatefulWidget { //converted the stateless widget t
   final Function addTx;
 
   NewTransaction(this.addTx); //data is accepted in the state widget and not the state object class.
-
   @override
   _NewTransactionState createState() => _NewTransactionState();
 }
+
 
 class _NewTransactionState extends State<NewTransaction> { //state object class
   final _titleController = TextEditingController();
@@ -21,7 +21,6 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
   void _submitData(){
     if(_amountController.text.isEmpty)
       return;
-    
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
 
