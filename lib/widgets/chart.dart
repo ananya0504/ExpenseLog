@@ -35,7 +35,7 @@ class Chart extends StatelessWidget {
   double get totalSpending{ //getter for caluclating the total till that day 
     return GroupedTransactionvalues.fold(0.0, (sum,item) {
       return sum + item['amount'];
-    }); //fold allows to change a list into another according tot he login we define in fold
+    }); //fold allows to change a list into another according to the login we define in fold
   }
 
   @override
