@@ -88,9 +88,12 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
                           ? 'No Date Chosen!'
                           : 'Picked Date:${DateFormat.yMd().format(_selecteddate)}'),
                       ),
-                      FlatButton(
-                        textColor: Theme.of(context).primaryColor,
-                        color: Theme.of(context).primaryColorLight,
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColorLight)
+                        ) ,
+                        // textColor: Theme.of(context).primaryColor,
+                        // color: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Choose Date',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -99,9 +102,9 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
                       )
                     ]),
                   ),
-                  RaisedButton(
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).textTheme.button.color,
+                  ElevatedButton(
+                    // color: Theme.of(context).primaryColor,
+                    // textColor: Theme.of(context).textTheme.button.color,
                     child: Text("Add Transaction"),
                     onPressed: _submitData, //not sending via anonymous function, therefore no need for () for passing the reference
                   )

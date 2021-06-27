@@ -10,10 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData( // setting up a colour theme for the app
         fontFamily: 'Quicksand',// setting the default font
         textTheme: ThemeData.light().textTheme.copyWith(
-          title: TextStyle(
+          headline6: TextStyle(
               fontFamily: 'OpenSans',
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-            title: TextStyle(
+            headline6: TextStyle(
               fontFamily: 'OpenSans',
               fontSize: 20,
               fontWeight: FontWeight.bold,
