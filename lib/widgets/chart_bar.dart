@@ -19,6 +19,9 @@ class ChartBar extends StatelessWidget {
         ),
         SizedBox(height : 4,),//adding some space using an empty box
         Container(
+          // decoration: BoxDecoration(
+          //   border: Border.all(color: Colors.black, width: 1.0),
+          // ),
           height: 60,
           width: 10,
           child: Stack(children: <Widget>[ //this widget takes elements on top of each other(overlapped)
@@ -29,7 +32,7 @@ class ChartBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            FractionallySizedBox( //stacked on top of container. widget which makes a container of a fractional size of some other container
+            FractionallySizedBox( //stacked on top of container widget which makes a container of a fractional size of some other container
               heightFactor: spendingPctOfTotal,
               child: Container( decoration: //using for decoration as no boxdecoration is available for fractionallysizedbox
                 BoxDecoration(

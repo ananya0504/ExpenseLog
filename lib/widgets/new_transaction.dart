@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 //state widget
 class NewTransaction extends StatefulWidget { //converted the stateless widget to stateful widget because else the data was getting lost
-  //stateless widgets are re-evaluated from time to time and therefore the data gets lost, it is not saved.
+  //in the bottomsheet. Stateless widgets are re-evaluated from time to time and therefore the data gets lost, it is not saved.
   // but in stateful widget it gets saved
   final Function addTx;
 
@@ -27,7 +27,7 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
     if(enteredTitle.isEmpty || enteredAmount <=0 || _selecteddate == null)
       return;
     //flutter creates widget. so that we can access the widget properties in its state object class.
-    widget.addTx( //calling the fucntion and passing parameters
+    widget.addTx( //calling the function and passing parameters
       enteredTitle,
       enteredAmount,
       _selecteddate,

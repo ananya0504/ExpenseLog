@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         primarySwatch: Colors.purple,
-        accentColor: Colors.amber, // an alternative colour, there is nothign called accentswatch tho
+        accentColor: Colors.amber, // an alternative colour, there is nothing called accentswatch tho
         errorColor: Colors.red,
       ),
       title: 'Personal Expenses',
@@ -111,8 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Personal Expenses'),
         actions: <Widget>[
-          IconButton(icon: 
-            Icon(Icons.add), 
+          IconButton(icon: Icon(Icons.add), 
             onPressed: () => _startAddNewTransaction(context),
           )
         ],

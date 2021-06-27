@@ -35,7 +35,7 @@ class TransactionList extends StatelessWidget {
           ],
         )
         : ListView.builder(
-            itemBuilder: (ctx, index){ //flutter calls this fucntion the number of times as of transactions.length
+            itemBuilder: (ctx, index){ //flutter calls this function the number of times as of transactions.length
               return Card(
                 elevation: 5,
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
@@ -43,8 +43,8 @@ class TransactionList extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 30,
                     child: Padding(
-                            padding: EdgeInsets.all(6),
-                            child: FittedBox( //to fir big item
+                      padding: EdgeInsets.all(6),
+                      child: FittedBox( //to fir big item
                         child: Text('\$${transactions[index].amount.toStringAsFixed(2)}'),
                       ),
                     ),
