@@ -7,7 +7,7 @@ class Chart extends StatelessWidget {
   final List<Transaction> recentTransaction;
   Chart(this.recentTransaction);
 
-  List<Map<String, Object>> get groupedTransactionValues {//getters do not have an argument list, they are properties defined dynamically
+  List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(
       7, (index) {
         final weekDay = DateTime.now().subtract(
@@ -39,7 +39,7 @@ class Chart extends StatelessWidget {
   double get totalSpending{ //getter for caluclating the total till that day 
     return groupedTransactionValues.fold(0.0, (sum,item) {
       return sum + item['amount'];
-    }); //fold allows to change a list into another according to the login we define in fold
+    }); //fold allows to change a list into another
   }
 
   @override
@@ -55,7 +55,7 @@ class Chart extends StatelessWidget {
           children: groupedTransactionValues.map(
             (data){
               return Flexible(
-                fit: FlexFit.tight, //to make sure that the text doesn't spread that much
+                fit: FlexFit.tight, // to make sure that the text doesn't spread that much
                 child: ChartBar(
                   data['day'],
                   data['amount'],

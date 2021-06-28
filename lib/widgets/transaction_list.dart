@@ -29,12 +29,12 @@ class TransactionList extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/waiting.png',
                   fit: BoxFit.cover,
-                  //colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2)),
                 )
               ),
           ],
         )
         : ListView.builder(
+            itemCount: transactions.length,
             itemBuilder: (ctx, index){ //flutter calls this function the number of times as of transactions.length
               return Card(
                 elevation: 5,
@@ -44,8 +44,8 @@ class TransactionList extends StatelessWidget {
                     radius: 30,
                     child: Padding(
                       padding: EdgeInsets.all(6),
-                      child: FittedBox( //to fir big item
-                        child: Text('\$${transactions[index].amount.toStringAsFixed(2)}'),
+                      child: FittedBox( //to fit big item
+                        child: Text('Rs.${transactions[index].amount.toStringAsFixed(2)}'),
                       ),
                     ),
                   ),
@@ -63,50 +63,7 @@ class TransactionList extends StatelessWidget {
                   ),
                 ),
               );
-                        
-              // return Card(
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         padding: EdgeInsets.all(10),
-              //         margin: EdgeInsets.symmetric(
-              //           vertical : 10,
-              //           horizontal: 15
-              //         ),
-              //         decoration: BoxDecoration(
-              //           border: Border.all(
-              //             color: Theme.of(context).primaryColor,
-              //             width: 2
-              //           )
-              //         ),
-              //         child: Text(
-              //           '\$${transactions[index].amount.toStringAsFixed(2)}', //toStringAsFixed -> 2 decimal places only
-              //           style: Theme.of(context).textTheme.title,
-              //           ),
-              //         ),
-              //       Column(
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: <Widget>[
-              //           Text(
-              //             transactions[index].title,
-              //             style: TextStyle(
-              //               fontSize: 16,
-              //               fontWeight: FontWeight.bold,
-              //             ),
-              //           ),
-              //           Text(
-              //             DateFormat.yMMMd().format(transactions[index].date),
-              //             style: TextStyle(
-              //               color: Colors.grey,
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              // );
             },
-            itemCount: transactions.length, //this anon function is called by flutter itself
           ),
     );
   }

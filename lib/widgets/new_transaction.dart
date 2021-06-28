@@ -26,7 +26,7 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
 
     if(enteredTitle.isEmpty || enteredAmount <=0 || _selecteddate == null)
       return;
-    //flutter creates widget. so that we can access the widget properties in its state object class.
+    
     widget.addTx( //calling the function and passing parameters
       enteredTitle,
       enteredAmount,
@@ -106,7 +106,7 @@ class _NewTransactionState extends State<NewTransaction> { //state object class
                     // color: Theme.of(context).primaryColor,
                     // textColor: Theme.of(context).textTheme.button.color,
                     child: Text("Add Transaction"),
-                    onPressed: _submitData, //not sending via anonymous function, therefore no need for () for passing the reference
+                    onPressed: _submitData, // not sending via anonymous function, therefore no need for () for passing the reference
                   )
                 ],
               ),

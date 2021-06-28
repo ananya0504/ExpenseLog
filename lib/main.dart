@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData( // setting up a colour theme for the app
-        fontFamily: 'Quicksand',// setting the default font
+      theme: ThemeData( // setting up a theme
+        fontFamily: 'Quicksand',// default font
         textTheme: ThemeData.light().textTheme.copyWith(
           headline6: TextStyle(
               fontFamily: 'OpenSans',
@@ -47,31 +47,62 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List <Transaction> _userTransactions = [
-  //   Transaction(
-  //   id: "t1",
-  //   title:"New Shoes",
-  //   amount: 69.99,
-  //   date: DateTime.now() 
-  // ),
-  // Transaction(
-  //   id: "t2",
-  //   title:"Weekly Groceries",
-  //   amount: 16.53,
-  //   date: DateTime.now() 
-  // ),
+    Transaction(
+    id: "t1",
+    title:"New Shoes",
+    amount: 2000,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t2",
+    title:"Weekly Groceries",
+    amount: 1500,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t3",
+    title:"Ice Cream",
+    amount: 60,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t4",
+    title:"Clothes",
+    amount: 4000,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t5",
+    title:"Medicines",
+    amount: 550,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t6",
+    title:"Notebook",
+    amount: 220,
+    date: DateTime.now() 
+  ),
+  Transaction(
+    id: "t7",
+    title:"Pens",
+    amount: 100,
+    date: DateTime.now() 
+  ),
+
   ];
 
-  List <Transaction> get _recentTransactions { //getters do not have an argument list
+  List <Transaction> get _recentTransactions { //no argument list
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
         DateTime.now().subtract(
-          Duration(days: 7),  //check if the date passed is after today -7's date
+          Duration(days: 7),  // to check if date passed is after today -7's date
         ),
       );
     },).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate){ // for adding a new transaction from the user
+  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate){ // adding new transaction from user
     final newTx = Transaction( //can't be constant(const) as the values change, therefore we use final
       title : txTitle,
       amount: txAmount,
@@ -80,8 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     setState(() {
-      _userTransactions.add(newTx); // though it is final but we are not changing the reference of the pointer 
-                                      //or the list, but just manipulating the value inside, which is allowed
+      _userTransactions.add(newTx); // although final, unchanged reference of pointer, manipulating the value inside, which is allowed
     });
   }
 
@@ -89,11 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
-        return GestureDetector(
-          onTap: () {}, //prevent closing the sheet when it is tapped on
-          child: NewTransaction(_addNewTransaction),
-          behavior: HitTestBehavior.opaque, //catch the tap event and avoid it of getting handled by anything else
-        );
+        return NewTransaction(_addNewTransaction);
       }
     );
   }
@@ -123,14 +149,6 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            // Container(
-            //   width: double.infinity,
-            //   child: Card(
-            //     child: Text("CHART!"),
-            //     elevation: 5,
-            //     color: Theme.of(context).primaryColorLight,
-            //   ),
-            // ),
             TransactionList(_userTransactions, _deleteTransaction),
           ]
         ),
